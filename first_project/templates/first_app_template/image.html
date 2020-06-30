@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>This is an image file.</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+  </head>
+  <body>
+    <h2>We are embedding a html file.</h2>
+    <img src="{% static "images/1.png" %}" alt="Image is not Loadable ...Inspect">
+  </body>
+</html>

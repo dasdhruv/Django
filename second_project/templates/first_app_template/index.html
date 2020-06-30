@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Level Two Django</title>
+    <link rel="stylesheet" href="{% static "/css/style.css" %}">
+  </head>
+  <body>
+    <h2>Hello welcome to Django level 2</h2>
+    <h1>Here is your access records</h1>
+    <div class="django2">
+      {% if insert_me %}
+          <table>
+            <thead>
+              <th>Site name</th>
+              <th>Data Accessed</th>
+            </thead>
+            {% for i in insert_me %}
+            <tr>
+              <td>{{ i.name_webpage }}</td>
+              <td>{{ i.date }}</td>
+            </tr>
+            {% endfor %}
+
+          </table>
+        {% else %}
+          <p>No, records found further</p>
+        {% endif %}
+    </div>
+  </body>
+</html>
