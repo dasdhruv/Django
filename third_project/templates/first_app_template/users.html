@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Level Two Django Problem-1</title>
+    <link rel="stylesheet" href="{% static "/css/style.css" %}">
+  </head>
+  <body>
+    <h2>Hello welcome to Django level 2</h2>
+    <h1>Here is your access records</h1>
+    <div class="django2">
+      {% if insert_me %}
+            <ol>
+                {% for i in insert_me %}
+                        <li>
+                          UserInformation::
+                              <ul>
+                                  <li>
+                                    First Name: {{ i.user_name }}
+                                  </li>
+                                  <li>
+                                    Last Name: {{ i.user_lastname }}
+                                  </li>
+                                  <li>
+                                    Email: {{ i.user_email }}
+                                  </li>
+                              </ul>
+                        </li>
+                {% endfor %}
+            </ol>
+      {% else %}
+          <p>No, records found further</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
