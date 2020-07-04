@@ -2,4 +2,5 @@
 {% extends "basic_app/base.html" %}
 {% block body_block %}
     <h1>Welcome to other page.</h1>
+    <h2>{{ text|cut:' script' }}</h2>
 {% endblock %}
