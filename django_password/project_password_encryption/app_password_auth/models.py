@@ -8,7 +8,7 @@ In addition to these attributes we also need other attributes such as users' own
 Hence we are creating an object called end_user which will have one-one relationship to the in-built User.
 """
 class EndUserProfileInfo(models.Model):
-    end_user = models.OneToOneField(User, on_delete = models.CASCADE)
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     ## Additional attributes
     end_user_site = models.URLField(blank=True)
     # to use image field install pillow libraries
@@ -17,4 +17,4 @@ class EndUserProfileInfo(models.Model):
 
     def __str__(this):
         # we are returning default username that comes with django
-        return this.User.username
+        return this.user.username

@@ -10,13 +10,13 @@ def index(request):
 def register(request):
     registered = False
     if request.method == 'POST':
-        fu = UserForm(data = request)
-        fcu = CustomUserForm(data = request)
+        fu = UserForm(data = request.POST)
+        fcu = CustomUserForm(data = request.POST)
 
 
         if fu.is_valid() and fcu.is_valid():
             user = fu.save()
-            user.save_password(user.user_password)
+            user.set_password(user.password)
             user.save()
 
             profile = fcu.save(commit=False)

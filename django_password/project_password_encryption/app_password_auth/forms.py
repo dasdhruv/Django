@@ -6,11 +6,13 @@ class CustomUserForm(forms.ModelForm):
     class Meta():
         # Never use () to call EndUserProfileInfo
         model = EndUserProfileInfo
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ('end_user_site','end_user_dp')
+
 
 
 class UserForm(forms.ModelForm):
-    user_password = forms.CharField(widget = forms.PasswordInput())
+    password = forms.CharField(widget = forms.PasswordInput())
     class Meta():
         model = User
         fields = ('username','password','email',)
