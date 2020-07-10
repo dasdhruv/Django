@@ -22,14 +22,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <!--a class="navbar-brand" href="C:\Users\pallavi das\Documents\MCA\Web_Development\Bootstrap\CapstonProject.html">Welcome</a-->
+          <!-- index is the name for idnex page which we have defined in the project's url.py file -->
           <a class="navbar-brand" href="{% url 'index' %}">Welcome</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a class="navbar-link" href="{% url 'index' %}">Brand</a></li>
             <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
-            <li><a class="navbar-link" href="{% url 'basic_app:other_page' %}">Other</a></li>
+            <!-- app_password_auth is the app_name which we registred in our apps ulrs.py script -->
+            <!-- view_register is a name which we have defined in apps urls.py script  -->
+            <li><a class="navbar-link" href="{% url 'app_password_auth:view_register' %}">Register User</a></li>
           </ul>
         </div>
 
