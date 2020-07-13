@@ -2,6 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import CustomUserForm, UserForm
 # Create your views here.
+# Libraries for django Login
+from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+
+@login_required
+def user_logout(request):
+     logout(request)
+     return HttpResponseRedirect(reverse('index'))
+
+
+@login_required
+def special(request):
+     return HttpResponse('You are logged in')
 
 def index(request):
     return render(request,'app_password_auth/index.html')
@@ -45,3 +60,25 @@ def register(request):
         fcu = CustomUserForm()
 
     return render(request, 'app_password_auth/registration_page.html', {'user_form':fu, 'user_profile_form':fcu, 'registered':registered})
+
+# Do not use class name as login as we already have imported login form django.contrib.auth
+def user_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password =  request.POST.get('password')
+
+        # the django function will authenticate the user
+        user = authenticate(username = username, password = password)
+
+        if user:
+            if user.is_active:
+                # use the login function which you have imported from django
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return HttpResponse("User is not activated")
+        else:
+            print("The username {} with password {} tried to login".format(username, password))
+            return HttpResponse("User authentication failed")
+    else:
+        return render(request, 'app_password_auth/user_login.html', {})

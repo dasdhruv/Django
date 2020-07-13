@@ -16,6 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from app_password_auth import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls), path('register/', include('app_password_auth.urls')), path('', views.index, name='index')
+    path('admin/', admin.site.urls),
+    path('app_password_auth/', include('app_password_auth.urls')),
+    path('', views.index, name='index'),
+    path('logout/',views.user_logout,name='logout'),
+    path('view_special/',views.special,name='view_special'),
+
 ]
