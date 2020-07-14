@@ -5,7 +5,7 @@ set -e
 # TODO: Set to URL of git repo.
 PROJECT_GIT_URL='https://github.com/dasdhruv/Django.git'
 
-PROJECT_BASE_PATH='/usr/local/apps/project_password_encryption'
+PROJECT_BASE_PATH='/usr/local/apps/user_profile'
 
 echo "Installing dependencies..."
 apt-get update
