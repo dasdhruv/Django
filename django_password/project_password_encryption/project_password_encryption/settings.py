@@ -24,7 +24,8 @@ MEDIA_DIR = os.path.join(BASE_DIR, "media")
 SECRET_KEY = '&incu55xs@zs*c)hz32u-=y$*yr4u(3t8axwe0onp2u&2p-rq*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = bool(int (os.environ.get('DEBUG', 1)))
 
 ALLOWED_HOSTS = []
 
@@ -136,3 +137,5 @@ MEDIA_ROOT = MEDIA_DIR
 STATIC_URL = '/media/'
 
 LOGIN_URL = '/app_password_auth/user_login/'
+
+STATIC_ROOT = 'static/'
