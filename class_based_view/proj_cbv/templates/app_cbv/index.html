@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "app_cbv/base.html" %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The Home Page</title>
+    </head>
+  <body>
+    {% block body_block %}
+    <div class="jumbotron">
+        <h3>The Home Page- Testing the template view</h3>
+        <h3>{{ val_1 }}</h3>
+        <h3>{{ val_2 }}</h3>
+    </div>
+    {% endblock %}
+  </body>
+</html>
