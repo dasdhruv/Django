@@ -1,0 +1,14 @@
+<!-- Without this page django will throw an error. TemplateDoesNotExist at /app_cbv/delete/3
+app_cbv/school_confirm_delete.html. After you get this error, you can create this page as suggested by django. -->
+<!DOCTYPE html>
+{% extends "app_cbv/base_stmasys.html" %}
+{% block body_block %}
+    <div class="jumbotron">
+        <h3>Wannna Delete School {{ delete_school.name }} ?</h3>
+        <form method="post">
+          {% csrf_token %}
+          <input type="submit" class="btn btn-danger" value="Delete">
+          <a href="{% url 'app_cbv:school_details' pk=delete_school.pk %}">Cancel</a>
+        </form>
+    </div>
+{% endblock %}

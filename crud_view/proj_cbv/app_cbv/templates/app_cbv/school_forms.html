@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "app_cbv/base_stmasys.html" %}
+{% block body_block %}
+  <div class="jumbotron">
+    <h2>
+    {% if not form.instance.pk %} <!-- form.instance.pk refers the primary key value -->
+       Create School: <!-- if not primary key then update-->
+    {% else %}
+       Update the School: <!-- if primary key then update-->
+    {% endif %}
+    </h2>
+
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" name="btn btn-primary" value="Submit">
+    </form>
+  </div>
+{% endblock %}

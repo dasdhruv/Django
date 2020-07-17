@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends "app_cbv/base_stmasys.html" %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>The School details Page</title>
+    </head>
+  <body>
+    {% block body_block %}
+    <div class="jumbotron">
+        <h2>The School Details</h2>
+        <p>School Name: {{ school_details.name }}</p>
+        <p>School Address: {{ school_details.location }}</p>
+        <p>Principal Name: {{ school_details.principal }}</p>
+        <p>Students:</p>
+        <!-- Now we want to get student details now. In models.py file, we have a class or table named Student, which has a foreign key school and we -->
+        <!-- named this relationship by saying, related_name = 'student'. So, related_name will be used to get records from the Student table but not -->
+        <!-- from the school table. -->
+        {% for i in school_details.student.all %}
+          <p>{{ i.name }} is {{ i.age }} years' old</p>
+        {% endfor %}
+    </div>
+    <div class="container">
+      <!-- we are using school_details as context_object_name and this page is requested by SchoolDetailView class. -->
+      <!-- The object school_details contains the data for School table. -->
+      <a class="btn btn-warning" href="{% url 'app_cbv:school_update' pk=school_details.pk %}">Update</a>
+      <a class="btn btn-danger" href="{% url 'app_cbv:school_delete' pk=school_details.pk %}">Delete</a>
+    </div>
+    {% endblock %}
+  </body>
+</html>
